@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Usage: ./cli <filename.csv>"
+    exit 1
+fi
+
+csv_file=$1
+username="testUser"
+password="1234"
+
+curl -X POST -u $username:$password -F "file=@$csv_file" http://0.0.0.0:8000/api/v1/set-card-transactions-data/
